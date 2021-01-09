@@ -27,7 +27,8 @@ end
     admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
-                  email: Faker::Internet.email, 
+                  email: Faker::Internet.email,
+                  rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
                   service_price: Faker::Number.number(digits: 9), 
                   paid_out: 0,
@@ -41,7 +42,8 @@ end
     admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
-                  email: Faker::Internet.email, 
+                  email: Faker::Internet.email,
+                  rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
                   service_price: Faker::Number.number(digits: 8), 
                   paid_out: paid_out,
