@@ -1,24 +1,24 @@
-# README
+# DESCRIPCIÓN DE PROYECTO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+El proyecto consiste en un gestor de recursos humanos para prestadores  servicios de salud.
 
-* Ruby version
+Necesidad:
+1.
+Luego de variadas entrevistas con Dueños y gerentes de empresas de servicios de salud, se aprecia una necesidad importante a la hora de la gestion de empleados para los prestadores de salud ya que el pago de funciones y las diferencias de cobros a clientes hacen el proceso muy complicado y genera una gran perdida de tiempo a fin de mes tanto para pagar los sueldos de los empleados como para el cobro a clientes ya que en general las cuatos son variables por lo que es necesario calcular por profesional y por cliente la gestion.
 
-* System dependencies
+2.
+Por otra parte existe una necesidad importante en el control monetario en este tipo de empresas ya que al ser variables y personales los los cobors y pagos es muy dificil llevar el control ya sea de produccion por empleado como de ganancias por sector o diferente informacion estadistica.
 
-* Configuration
+3.
+Por ultimo al ser servicios de atencion unitaria con cobros variables es muy importante integrar algun sistema de cobros y pagos por servicio.
 
-* Database creation
 
-* Database initialization
+# AVANCES
 
-* How to run the test suite
+Hito 1
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-Base Creada
+-CRUD objetos
+-Base Poblada
+-Vistas Crud basico
