@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "clients#index"
   resources :services
   resources :collaborators
   resources :clients
