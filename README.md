@@ -22,3 +22,6 @@ Hito 1
 -CRUD objetos
 -Base Poblada
 -Vistas Crud basico
+
+# Link Tablero Trello
+https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
