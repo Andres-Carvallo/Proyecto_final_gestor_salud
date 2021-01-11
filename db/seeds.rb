@@ -23,7 +23,7 @@ end
                         )
 end
 
-15.times do
+40.times do
     admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
@@ -37,7 +37,7 @@ end
                   )
 end
 
-10.times do
+35.times do
     paid_out = rand(1000..60000)
     admin_id = rand(1..2)
     collaborator_id = rand(1..10)
@@ -52,11 +52,15 @@ end
                 )
 end
 
-100.times do
+10.times do
     amount = rand(15000..30000)
     collaborator_id = rand(1..10)
     client_id = rand(1..25)
-    Service.create(amount: amount, collaborator_id: collaborator_id, client_id: client_id)
+    Service.create(name: Faker::Company.industry,
+                   amount: amount,
+                   collaborator_id: collaborator_id,
+                   client_id: client_id
+                )
 end
 
 

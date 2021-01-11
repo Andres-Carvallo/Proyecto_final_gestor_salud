@@ -1,4 +1,4 @@
 class Admin < ApplicationRecord
     has_many :clients
-    has_many :collaboratos
+    has_many :collaborators
 end
