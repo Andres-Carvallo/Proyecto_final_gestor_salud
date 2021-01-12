@@ -30,7 +30,6 @@ end
                   email: Faker::Internet.email,
                   rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
-                  service_price: Faker::Number.number(digits: 9), 
                   paid_out: 0,
                   admin_id: admin_id,
                   collaborator_id: collaborator_id
@@ -45,7 +44,6 @@ end
                   email: Faker::Internet.email,
                   rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
-                  service_price: Faker::Number.number(digits: 8), 
                   paid_out: paid_out,
                   admin_id: admin_id,
                   collaborator_id: collaborator_id
