@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
-  devise_scope :user do
-    authenticated :user do
-      root 'clients#index', as: :authenticated_root
-    end
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
+  authenticated :user do
+    root 'homes#index', as: :authenticated_root
   end
-  root "devise/sessions#new"
+  
+  unauthenticated do
+    root 'users/sessions#new', as: :unauthenticated_root
+  end
+
+  root "users/sessions#new"
   resources :services
   resources :collaborators
   resources :clients
