@@ -27,6 +27,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :selecciona_tu_profesional %>
+    <div class="mb-3 "> 
+      <%= form.collection_select :admin_id, Admin.order(:name), :id, :name %>
+    </div>
+  <div>
+
+  <div class="field">
     <%= form.label :percentage_profit %>
     <%= form.text_field :percentage_profit %>
   </div>

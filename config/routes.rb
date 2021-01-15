@@ -3,16 +3,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-
-  authenticated :user do
-    root 'homes#index', as: :authenticated_root
-  end
-  
-  unauthenticated do
-    root 'users/sessions#new', as: :unauthenticated_root
-  end
-
-  root "users/sessions#new"
+  root "homes#index"
   resources :services
   resources :collaborators
   resources :clients

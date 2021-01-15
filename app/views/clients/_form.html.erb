@@ -17,9 +17,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <%= form.label :selecciona_tu_profesional %>
+    <div class="mb-3 "> 
+      <%= form.collection_select :collaborator_id, Collaborator.order(:name), :id, :name %>
+    </div>
+  <div>
 
   <div class="field">
     <%= form.label :phone_number %>

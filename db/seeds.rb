@@ -19,7 +19,7 @@ end
                         phone_number: Faker::Number.number(digits: 9),
                         percentage_profit: percentage_profit,
                         profit_amount: profit_amount,
-                        admin_id: admin_id
+                        admin_id: admin_id,
                         )
 end
 
@@ -27,11 +27,9 @@ end
     admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
-                  email: Faker::Internet.email,
                   rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
                   paid_out: 0,
-                  admin_id: admin_id,
                   collaborator_id: collaborator_id
                   )
 end
@@ -41,11 +39,9 @@ end
     admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
-                  email: Faker::Internet.email,
                   rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
                   paid_out: paid_out,
-                  admin_id: admin_id,
                   collaborator_id: collaborator_id
                 )
 end
