@@ -24,8 +24,7 @@ class Users::SessionsController < Devise::SessionsController
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:role])
   end
-  def after_sign_in_path_for(resource)
-    
+  def after_sign_in_path_for(resource) 
     if (current_user.role == "Gerencia" && current_user.client == nil)
       :new_admin
     elsif (current_user.role == "Gerencia" && current_user.client.user_id == current_user.id )
