@@ -1,6 +1,6 @@
 class CollaboratorsController < ApplicationController
   before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
-
+  before_action :verify_role
   # GET /collaborators
   # GET /collaborators.json
   def index
@@ -29,8 +29,12 @@ class CollaboratorsController < ApplicationController
     @collaborator.user_id = current_user.id
     respond_to do |format|
       if @collaborator.save
-        format.html { redirect_to :collaborators, notice: 'Collaborator was successfully created.' }
-        format.json { render :show, status: :created, location: @collaborator }
+        if current_user.role = "Gerencia"
+          format.js {render layout: false}
+        else
+          format.html { redirect_to :collaborators, notice: 'Collaborator was successfully created.' }
+          format.json { render :show, status: :created, location: @collaborator }
+        end
       else
         format.html { render :new }
         format.json { render json: @collaborator.errors, status: :unprocessable_entity }
@@ -43,8 +47,13 @@ class CollaboratorsController < ApplicationController
   def update
     respond_to do |format|
       if @collaborator.update(collaborator_params)
-        format.html { redirect_to :collaborators, notice: 'Collaborator was successfully updated.' }
-        format.json { render :show, status: :ok, location: @collaborator }
+        if current_user.role = "Gerencia"
+          format.html { redirect_to :admins, notice: 'Collaborator was successfully updated.' }
+          format.json { render :show, status: :ok, location: @collaborator }
+        else
+          format.html { redirect_to :collaborators, notice: 'Collaborator was successfully updated.' }
+          format.json { render :show, status: :ok, location: @collaborator }
+        end
       else
         format.html { render :edit }
         format.json { render json: @collaborator.errors, status: :unprocessable_entity }
@@ -71,5 +80,11 @@ class CollaboratorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def collaborator_params
       params.require(:collaborator).permit(:name, :email, :phone_number, :percentage_profit, :profit_amount, :admin_id)
+    end
+
+    def verify_role
+      if current_user.role == "Paciente"
+        redirect_to user_session_path
+      end
     end
 end

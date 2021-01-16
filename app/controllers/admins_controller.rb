@@ -1,12 +1,13 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
-
+  before_action :verify_role
   # GET /admins
   # GET /admins.json
   def index
     @admins = Admin.all
     @collaborators = Collaborator.all 
     @clients = Client.all
+    @collaborator = Collaborator.new
   end
 
   # GET /admins/1
@@ -72,5 +73,11 @@ class AdminsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def admin_params
       params.require(:admin).permit(:name)
+    end
+
+    def verify_role
+      if current_user.role != "Gerencia"
+        redirect_to user_session_path
+      end
     end
 end

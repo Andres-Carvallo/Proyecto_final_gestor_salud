@@ -26,4 +26,8 @@
 </p>
 
 <%= link_to 'Edit', edit_collaborator_path(@collaborator) %> |
-<%= link_to 'Back', collaborators_path %>
+<%if current_user.role == "Gerencia"%>
+  <%= link_to 'Back', admins_path %>
+<%else%>
+  <%= link_to 'Back', collaborators_path %>
+<%end%>

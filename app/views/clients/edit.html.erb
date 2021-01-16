@@ -3,4 +3,11 @@
 <%= render 'form', client: @client %>
 
 <%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+<%if current_user.role == "Profesional"%>
+    <%= link_to 'Back', collaborators_path %>
+<%elsif current_user.role == "Gerencia"%>
+    <%= link_to 'Back', admins_path %>
+<%else%>
+    <%= link_to 'Back', client_path(current_user.client.id) %>
+<%end%>
+

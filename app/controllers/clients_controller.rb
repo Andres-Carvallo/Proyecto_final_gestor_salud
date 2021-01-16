@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
+
   # GET /clients
   # GET /clients.json
   def index
@@ -43,8 +44,13 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
-        format.json { render :show, status: :ok, location: @client }
+        if current_user.role = "Gerencia"
+          format.html { redirect_to :admins, notice: 'Client was successfully updated.' }
+          format.json { render :show, status: :ok, location: @client }
+        else
+          format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+          format.json { render :show, status: :ok, location: @client }
+        end
       else
         format.html { render :edit }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -72,4 +78,6 @@ class ClientsController < ApplicationController
     def client_params
       params.require(:client).permit(:name, :phone_number, :rut, :paid_out, :user_id, :collaborator_id)
     end
+
+
 end

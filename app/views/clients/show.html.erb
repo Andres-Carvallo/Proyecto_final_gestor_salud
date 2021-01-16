@@ -20,5 +20,15 @@
   <%= @client.paid_out %>
 </p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
+<%if current_user.role != "Profesional"%>
+  <%= link_to 'Edit', edit_client_path(@client) %> 
+<%end%>
+
+<%if current_user.role == "Profesional"%>
+  <%= link_to 'Back', collaborators_path %>
+<%elsif current_user.role == "Gerencia"%>
+  <%= link_to 'Back', admins_path %>
+<%else%>
+
+<%end%>
 

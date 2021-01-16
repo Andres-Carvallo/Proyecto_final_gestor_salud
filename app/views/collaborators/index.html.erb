@@ -8,6 +8,8 @@
       <th>Nombre</th>
       <th>Telefono</th>
       <th>Rut</th>
+      <th>Datos Personales</th>
+      <th>Eliminar Pacientes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +21,6 @@
         <td><%= client.phone_number %></td>
         <td><%= client.rut %></td>
         <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
         <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
