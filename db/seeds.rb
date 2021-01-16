@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+AdminUser.destroy_all
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 2.times do
     Admin.create(name: Faker::Name.name)
@@ -56,6 +59,5 @@ end
                    client_id: client_id
                 )
 end
-
 
 
