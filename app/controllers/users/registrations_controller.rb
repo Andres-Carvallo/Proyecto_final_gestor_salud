@@ -61,7 +61,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     elsif (current_user.role == "Profesional" && current_user.client == nil)
       :new_collaborator
     elsif (current_user.role == "Profesional" && current_user.client.user_id == current_user.id)
-      :collaborators
+      :clients
     else
       :root
     end
@@ -69,17 +69,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    if (current_user.role == "Gerencia" && current_user.client == nil)
+    if (current_user.role == "Gerencia" && current_user.admin == nil)
       :new_admin
-    elsif (current_user.role == "Gerencia" && current_user.client.user_id == current_user.id )
+    elsif (current_user.role == "Gerencia" && current_user.admin.user_id == current_user.id )
       :collaborators
     elsif (current_user.role == "Paciente" && current_user.client == nil)
       :new_client
     elsif (current_user.role == "Paciente" && current_user.client.user_id == current_user.id)
       :clients
-    elsif (current_user.role == "Profesional" && current_user.client == nil)
+    elsif (current_user.role == "Profesional" && current_user.collaborator == nil)
       :new_collaborator
-    elsif (current_user.role == "Profesional" && current_user.client.user_id == current_user.id)
+    elsif (current_user.role == "Profesional" && current_user.collaborator.user_id == current_user.id)
       :collaborators
     else
       :root

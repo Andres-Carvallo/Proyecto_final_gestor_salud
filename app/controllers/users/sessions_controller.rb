@@ -25,17 +25,17 @@ class Users::SessionsController < Devise::SessionsController
     devise_parameter_sanitizer.permit(:sign_in, keys: [:role])
   end
   def after_sign_in_path_for(resource) 
-    if (current_user.role == "Gerencia" && current_user.client == nil)
+    if (current_user.role == "Gerencia" && current_user.admin == nil)
       :new_admin
-    elsif (current_user.role == "Gerencia" && current_user.client.user_id == current_user.id )
-      :collaborators
+    elsif (current_user.role == "Gerencia" && current_user.admin.user_id == current_user.id )
+      :admins
     elsif (current_user.role == "Paciente" && current_user.client == nil)
       :new_client
     elsif (current_user.role == "Paciente" && current_user.client.user_id == current_user.id)
-      :clients
-    elsif (current_user.role == "Profesional" && current_user.client == nil)
+      client_path(current_user.client.id)
+    elsif (current_user.role == "Profesional" && current_user.collaborator == nil)
       :new_collaborator
-    elsif (current_user.role == "Profesional" && current_user.client.user_id == current_user.id)
+    elsif (current_user.role == "Profesional" && current_user.collaborator.user_id == current_user.id)
       :collaborators
     else
       :root

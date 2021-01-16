@@ -25,10 +25,10 @@ class CollaboratorsController < ApplicationController
   # POST /collaborators.json
   def create
     @collaborator = Collaborator.new(collaborator_params)
-
+    @collaborator.user_id = current_user.id
     respond_to do |format|
       if @collaborator.save
-        format.html { redirect_to @collaborator, notice: 'Collaborator was successfully created.' }
+        format.html { redirect_to :collaborators, notice: 'Collaborator was successfully created.' }
         format.json { render :show, status: :created, location: @collaborator }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CollaboratorsController < ApplicationController
   def update
     respond_to do |format|
       if @collaborator.update(collaborator_params)
-        format.html { redirect_to @collaborator, notice: 'Collaborator was successfully updated.' }
+        format.html { redirect_to :collaborators, notice: 'Collaborator was successfully updated.' }
         format.json { render :show, status: :ok, location: @collaborator }
       else
         format.html { render :edit }
