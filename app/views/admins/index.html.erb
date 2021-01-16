@@ -1,27 +1,99 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="mb-5">
+    <button type="button" class="btn btn-dark">Nuevo Profesional </button>
+    <button type="button" class="btn btn-dark">Nuevo Cliente</button>
+  </div>
 
-<h1>Admins</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admins.each do |admin| %>
+  <h1>Administradores</h1>
+  
+  <table>
+    <thead>
       <tr>
-        <td><%= admin.name %></td>
-        <td><%= link_to 'Show', admin %></td>
-        <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nombre</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td><%= admin.name %></td>
+          <td><%= link_to 'Show', admin %></td>
+          <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+          <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  <hr>
+  
+  <h1>Profesionales</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Porcentaje de ganancia</th>
+        <th>Monto de ganancia</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @collaborators.each do |collaborator| %>
+        <tr>
+          <td><%= collaborator.name %></td>
+          <td><%= collaborator.email %></td>
+          <td><%= collaborator.phone_number %></td>
+          <td><%= collaborator.percentage_profit %></td>
+          <td><%= collaborator.profit_amount %></td>
+          <td><%= link_to 'Show', collaborator %></td>
+          <td><%= link_to 'Edit', edit_collaborator_path(collaborator) %></td>
+          <td><%= link_to 'Destroy', collaborator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  <hr>
+  <h1>Clientes</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Rut</th>
+        <th>Monto Pagado</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.name %></td>
+          <td><%= client.phone_number %></td>
+          <td><%= client.rut %></td>
+          <td><%= client.paid_out %></td>
+          <td><%= link_to 'Show', client %></td>
+          <td><%= link_to 'Edit', edit_client_path(client) %></td>
+          <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <div class="mb-5">
+    <%= link_to 'Dashboard Gerencia', admin_root_path %>
+  </div>
 
-<br>
-
-<%= link_to 'New Admin', new_admin_path %>
+</div>

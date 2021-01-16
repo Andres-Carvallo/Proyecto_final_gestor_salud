@@ -1,4 +1,4 @@
 class Admin < ApplicationRecord
-    has_many :clients
-    has_many :collaborators
+    has_many :clients, dependent: :destroy
+    has_many :collaborators, dependent: :destroy
 end

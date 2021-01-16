@@ -5,6 +5,7 @@ class CollaboratorsController < ApplicationController
   # GET /collaborators.json
   def index
     @collaborators = Collaborator.all
+    @current_collaborator = Collaborator.where(user_id: current_user.id).first.clients
   end
 
   # GET /collaborators/1

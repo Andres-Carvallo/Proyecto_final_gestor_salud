@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.destroy_all
+Collaborator.destroy_all
+Client.destroy_all
+Admin.destroy_all
+Service.destroy_all
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
@@ -27,7 +31,6 @@ end
 end
 
 40.times do
-    admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
                   rut: Faker::ChileRut.rut,  
@@ -39,7 +42,6 @@ end
 
 35.times do
     paid_out = rand(1000..60000)
-    admin_id = rand(1..2)
     collaborator_id = rand(1..10)
     Client.create(name: Faker::Name.name, 
                   rut: Faker::ChileRut.rut,  
