@@ -30,8 +30,13 @@ class ClientsController < ApplicationController
     @client.user_id = current_user.id
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        format.json { render :show, status: :created, location: @client }
+        if current_user.role = "Gerencia"
+          format.js {render layout: false}
+          format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        elsif current_user.role = "Paciente"
+          format.html { redirect_to @client, notice: 'Client was successfully created.' }
+          format.json { render :show, status: :created, location: @client }
+        end
       else
         format.html { render :new }
         format.json { render json: @client.errors, status: :unprocessable_entity }

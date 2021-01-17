@@ -8,6 +8,7 @@ class AdminsController < ApplicationController
     @collaborators = Collaborator.all 
     @clients = Client.all
     @collaborator = Collaborator.new
+    @client = Client.new
   end
 
   # GET /admins/1

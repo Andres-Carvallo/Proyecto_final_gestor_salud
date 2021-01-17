@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="mb-5">
-    <button type="button" class="btn btn-dark">Nuevo Profesional </button>
-    <button type="button" class="btn btn-dark">Nuevo Cliente</button>
-  </div>
 
-  <%= render '/collaborators/form2', collaborator: @collaborator %>
-  
+<div class="container">
+
   <h1>Administradores</h1>
+  
+
   
   <table>
     <thead>
@@ -35,12 +32,20 @@
     </tbody>
   </table>
   
-  <br>
   <hr>
+  <br>
   
   <h1>Profesionales</h1>
+
   
   <table>
+    <h3 class="d-flex  justify-content-center">Agregar Nuevo Profesional</h3>
+    <div class="mb-4 d-flex justify-content-center">
+      <button type="button" class="btn btn-dark" id="collaborator-button">Nuevo Profesional </button>
+    </div >
+    <div id="collaborator-form" class="mt-4 mb-4">
+      <%= render '/collaborators/form2', collaborator: @collaborator %>
+    </div>
     <thead>
       <tr>
         <th>Nombre</th>
@@ -68,11 +73,18 @@
     </tbody>
   </table>
   
-  <br>
   <hr>
+  <br>
   <h1>Clientes</h1>
   
   <table>
+    <h3 class="d-flex  justify-content-center">Agregar Nuevos Clientes</h3>
+    <div class="mb-4 d-flex justify-content-center">
+      <button type="button" class="btn btn-dark" id="client-button">Nuevo Cliente</button>
+    </div >
+    <div id="client-form" class="mt-4 mb-4">
+      <%= render '/clients/form2', client: @client %>
+    </div>
     <thead>
       <tr>
         <th>Nombre</th>
@@ -99,9 +111,7 @@
   </table>
   
   <br>
-  
-  <div class="mb-5">
-    <%= link_to 'Dashboard Gerencia', admin_root_path %>
-  </div>
 
 </div>
+
+  

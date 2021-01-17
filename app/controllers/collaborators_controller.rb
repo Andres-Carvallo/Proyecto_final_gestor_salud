@@ -31,6 +31,7 @@ class CollaboratorsController < ApplicationController
       if @collaborator.save
         if current_user.role = "Gerencia"
           format.js {render layout: false}
+          format.html { redirect_to :collaborators, notice: 'Collaborator was successfully created.' }
         else
           format.html { redirect_to :collaborators, notice: 'Collaborator was successfully created.' }
           format.json { render :show, status: :created, location: @collaborator }
