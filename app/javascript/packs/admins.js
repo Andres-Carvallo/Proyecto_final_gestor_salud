@@ -1,20 +1,20 @@
 $(document).on('turbolinks:load', function(){
+    
     $('#collaborator-button').click(function (){
-        var form = document.getElementById("collaborator-form");
-        if(form.style.display == "none"){
-            $('#collaborator-form').show();
+        var form2 = document.getElementById("collaborator-form");
+        if(form2.style.display == "none"){
+            form2.style.display = "block";
         }else{
-            $('#collaborator-form').hide();
+            form2.style.display = "none";
         }
     }) 
-
+    
     $('#client-button').click(function (){
         var form = document.getElementById("client-form");
         if(form.style.display == "none"){
-            $('#client-form').show();
+            form.style.display = "block";
         }else{
-            $('#client-form').hide();
+            form.style.display = "none";
         }
     }) 
 })
-

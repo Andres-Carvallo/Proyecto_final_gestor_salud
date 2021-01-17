@@ -43,7 +43,7 @@
     <div class="mb-4 d-flex justify-content-center">
       <button type="button" class="btn btn-dark" id="collaborator-button">Nuevo Profesional </button>
     </div >
-    <div id="collaborator-form" class="mt-4 mb-4">
+    <div id="collaborator-form" style="display: none;" class="mt-4 mb-4" >
       <%= render '/collaborators/form2', collaborator: @collaborator %>
     </div>
     <thead>
@@ -82,7 +82,7 @@
     <div class="mb-4 d-flex justify-content-center">
       <button type="button" class="btn btn-dark" id="client-button">Nuevo Cliente</button>
     </div >
-    <div id="client-form" class="mt-4 mb-4">
+    <div id="client-form" class="mt-4 mb-4" style="display: none;">
       <%= render '/clients/form2', client: @client %>
     </div>
     <thead>
