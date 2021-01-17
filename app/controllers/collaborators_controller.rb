@@ -67,8 +67,13 @@ class CollaboratorsController < ApplicationController
   def destroy
     @collaborator.destroy
     respond_to do |format|
-      format.html { redirect_to collaborators_url, notice: 'Collaborator was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user.role = "Gerencia"
+        format.js {render layout: false}
+        format.html { redirect_to :admins, notice: 'Collaborator was successfully destroyed.' }
+      else
+        format.html { redirect_to :collaborators, notice: 'Collaborator was successfully destroyed.' }
+        format.json { render :show, status: :created, location: @collaborator }
+      end
     end
   end
 

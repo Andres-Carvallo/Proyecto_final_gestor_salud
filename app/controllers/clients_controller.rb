@@ -68,8 +68,13 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user.role = "Gerencia"
+        format.html { redirect_to :admins, notice: 'Client was successfully updated.' }
+        format.json { render :show, status: :ok, location: @client }
+      else
+        format.html { redirect_to :clients, notice: 'Client was successfully destroyed.' }
+        format.json { render :show, status: :ok, location: @client }
+      end
     end
   end
 

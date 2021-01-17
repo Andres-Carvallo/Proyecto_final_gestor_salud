@@ -16,5 +16,15 @@ $(document).on('turbolinks:load', function(){
         }else{
             form.style.display = "none";
         }
-    }) 
+    })
+
+    $('#service-button').click(function (){
+        var form = document.getElementById("service-form");
+        if(form.style.display == "none"){
+            form.style.display = "block";
+        }else{
+            form.style.display = "none";
+        }
+    })
+    
 })

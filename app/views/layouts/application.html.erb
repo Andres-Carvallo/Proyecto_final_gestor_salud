@@ -29,6 +29,7 @@
                   <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                   <li><%= link_to "Perfil Usuario", edit_user_registration_path%></li>
                   <%if current_user.role == "Gerencia"%>
+                    <li><%= link_to 'Servicios', services_path %></li>
                     <li><%= link_to 'Dashboard Gerencia', admin_root_path %></li>
                   <%end%>
                 </ul>

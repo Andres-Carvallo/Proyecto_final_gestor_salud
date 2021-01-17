@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-
+  before_action :verify_role
   # GET /services
   # GET /services.json
   def index
@@ -28,8 +28,12 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @service }
+        if current_user.role = "Gerencia"
+          format.js {render layout: false}
+        else
+          format.html { render :new }
+          format.json { render json: @service.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
@@ -69,6 +73,12 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:amount)
+      params.require(:service).permit(:amount, :name, :client_id, :collaborator_id)
+    end
+
+    def verify_role
+      if current_user.role != "Gerencia"
+        redirect_to user_session_path
+      end
     end
 end
