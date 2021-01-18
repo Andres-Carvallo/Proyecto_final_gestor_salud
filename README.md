@@ -25,3 +25,13 @@ Hito 1
 
 # Link Tablero Trello
 https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
+
+
+# Hito 2
+-Perfil Usuarios
+-Sistema autenthicacion
+-Dashborard (activ admin) role gerencia.
+    . User - admin@example.com
+    . Pass - ṕassword
+
+-Ajaxa creacion de recursos(servicios) en vista index admins.
