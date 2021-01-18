@@ -32,6 +32,6 @@ https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
 -Sistema autenthicacion
 -Dashborard (activ admin) role gerencia.
     . User - admin@example.com
-    . Pass - ṕassword
-
+    . Pass - password
 -Ajaxa creacion de recursos(servicios) en vista index admins.
+-Calificaciones en edit de servicios, acceso navbar. 
