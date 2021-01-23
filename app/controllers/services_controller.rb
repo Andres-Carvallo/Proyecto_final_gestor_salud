@@ -25,7 +25,8 @@ class ServicesController < ApplicationController
   # POST /services.json
   def create
     @service = Service.new(service_params)
-
+    @bill_total = @service.amount * @service.session
+    @service.update(bill: @bill_total)
     respond_to do |format|
       if @service.save
         if current_user.role = "Gerencia"
@@ -73,7 +74,7 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:amount, :name, :client_id, :collaborator_id, :score)
+      params.require(:service).permit(:amount, :name, :client_id, :collaborator_id, :score, :session, :bill)
     end
 
     def verify_role

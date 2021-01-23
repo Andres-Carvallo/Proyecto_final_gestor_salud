@@ -1,16 +1,20 @@
-<h1>Enero 2021</h1>
+<h1>Este Més</h1>
 <table>
 
     <div class="mt-5">
         <h2 class="text-center">Balance General</h2>
         <div class="row">
+            <div>
+                <h3>Utilidades Totales</h3>
+                <p><%=total_utilities(@collaborators, @services)%></p>
+            </div>
             <div class="pl-5"> 
                 <h3>Total Ganado</h3>
                 <p><%= total_profit(@services) %> </p>
             </div>
             <div>
-                <h3>Utilidades Totales</h3>
-                <p><%=total_utilities(@collaborators, @services)%></p>
+                <h3>Total gastado</h3>
+                <p><%=colab_total_amount_summary(@collaborators)%></p>
             </div>
 
         </div>

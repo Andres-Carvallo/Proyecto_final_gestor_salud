@@ -1,13 +1,17 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
   
-  <h1>Services</h1>
+  <h1>Atenciones</h1>
   
   <table>
     <thead>
       <tr>
         <th>Nombre</th>
         <th>Monto unitario</th>
+        <th>Nombre Cliente</th>
+        <th>Nombre Profesional</th>
+        <th>Numero de atenciones</th>
+        <th>Monto total</th>
         <th>Calificación</th>
         <th colspan="3"></th>
       </tr>
@@ -18,8 +22,11 @@
         <tr>
           <td><%= service.name %></td>
           <td><%= service.amount %></td>
+          <td><%= service.client.name %></td>
+          <td><%= service.collaborator.name %></td>
+          <td><%= service.session %></td>
+          <td><%= service.bill %></td>
           <td><%= service.score %></td>
-          <td><%= link_to 'Show', service %></td>
           <td><%= link_to 'Edit', edit_service_path(service) %></td>
           <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

@@ -7,13 +7,13 @@ module ApplicationHelper
         if collaborator.percentage_profit?
             percentage_profit = collaborator.percentage_profit * 0.01
             collaborator.services.each do |services|
-                total_amount += (services.amount * percentage_profit)
+                total_amount += (services.bill * percentage_profit)
             end 
         end
 
         if collaborator.profit_amount?
             collaborator.services.each do |service|
-                total_amount += (service.amount - collaborator.profit_amount)
+                total_amount += (service.bill - collaborator.profit_amount)
             end 
         end
         return total_amount
@@ -23,7 +23,7 @@ module ApplicationHelper
         total_debt = 0
         paid_out = client.paid_out
         client.services.each do |service|
-            total_debt += service.amount - paid_out
+            total_debt += service.bill - paid_out
         end
         return total_debt
     end
@@ -31,7 +31,7 @@ module ApplicationHelper
     def total_profit(services)
         total_profit = 0
         services.each do |service|
-            total_profit += service.amount
+            total_profit += service.bill
         end
         return total_profit
     end
@@ -43,12 +43,12 @@ module ApplicationHelper
             if collaborator.percentage_profit?
                 percentage_profit = collaborator.percentage_profit * 0.01
                 collaborator.services.each do |services|
-                    colab_total_amount += (services.amount * percentage_profit)
+                    colab_total_amount += (services.bill * percentage_profit)
                 end 
             end
             if collaborator.profit_amount?
                 collaborator.services.each do |service|
-                    colab_total_amount += (service.amount - collaborator.profit_amount)
+                    colab_total_amount += (service.bill - collaborator.profit_amount)
                 end 
             end
 
@@ -64,14 +64,35 @@ module ApplicationHelper
         if collaborator.percentage_profit?
             percentage_profit = collaborator.percentage_profit * 0.01
             collaborator.services.each do |services|
-                total_amount += ((services.amount * percentage_profit)/0.115)
+                total_amount += ((services.bill * percentage_profit)/0.115)
             end 
         end
 
         if collaborator.profit_amount?
             collaborator.services.each do |service|
-                total_amount += ((service.amount - collaborator.profit_amount)/0.115)
+                total_amount += ((service.bill - collaborator.profit_amount)/0.115)
             end 
+        end
+        return total_amount
+    end
+
+
+    def colab_total_amount_summary(collaborators)
+        total_amount = 0 
+        percentage_profit = 0
+        collaborators.each do |collaborator|
+            if collaborator.percentage_profit?
+                percentage_profit = collaborator.percentage_profit * 0.01
+                collaborator.services.each do |services|
+                    total_amount += (services.bill * percentage_profit)
+                end 
+            end
+    
+            if collaborator.profit_amount?
+                collaborator.services.each do |service|
+                    total_amount += (service.bill - collaborator.profit_amount)
+                end 
+            end
         end
         return total_amount
     end

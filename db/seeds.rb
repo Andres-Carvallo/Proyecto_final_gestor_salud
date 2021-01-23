@@ -22,7 +22,6 @@ end
 
     admin_id = rand(1..2)
     Collaborator.create(name: Faker::Name.name,
-                        email: Faker::Internet.email,
                         phone_number: Faker::Number.number(digits: 9),
                         percentage_profit: percentage_profit,
                         profit_amount: 0,
@@ -35,7 +34,6 @@ end
     profit_amount = rand(7500..20000)
     admin_id = rand(1..2)
     Collaborator.create(name: Faker::Name.name,
-                        email: Faker::Internet.email,
                         phone_number: Faker::Number.number(digits: 9),
                         percentage_profit: 0,
                         profit_amount: profit_amount,
@@ -68,10 +66,13 @@ end
     amount = rand(15000..30000)
     collaborator_id = rand(1..10)
     client_id = rand(1..25)
+    sessions = rand(1..10)
     Service.create(name: Faker::Company.industry,
                    amount: amount,
                    collaborator_id: collaborator_id,
-                   client_id: client_id
+                   client_id: client_id,
+                   session: sessions,
+                   bill: (sessions * amount)
                 )
 end
 
