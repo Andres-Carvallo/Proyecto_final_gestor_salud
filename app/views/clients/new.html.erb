@@ -1,5 +1,10 @@
-<h1>Para Continuar debes ingresar tus datos personales</h1>
-
-<%= render 'form', client: @client %>
-
-<%= link_to 'Back', clients_path %>
+<div class="container">
+    <%if current_user.role == "Profesional"%>
+        <h1>Ingresa tu paciente aqui</h1>
+        <%= render 'form', client: @client %>
+        <%= link_to 'Back', collaborators_path%>
+    <%else%>
+        <h1>Para Continuar debes ingresar tus datos personales</h1>
+        <%= render 'form', client: @client %>
+    <%end%>
+</div>

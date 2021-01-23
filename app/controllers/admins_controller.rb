@@ -5,8 +5,15 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
-    @collaborators = Collaborator.all 
-    @clients = Client.all
+    first_day_month = Time.parse("2021-01-01")
+    if Time.zone.now.end_of_month == Date.current
+      collaborators_close = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+      return collaborators_close
+    end
+    @collaborators = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    
+
+    @clients = Client.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     @collaborator = Collaborator.new
     @client = Client.new
     @service = Service.new

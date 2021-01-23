@@ -19,12 +19,25 @@ end
 
 10.times do
     percentage_profit = rand(30..90)
-    profit_amount = rand(7500..20000)
+
     admin_id = rand(1..2)
     Collaborator.create(name: Faker::Name.name,
                         email: Faker::Internet.email,
                         phone_number: Faker::Number.number(digits: 9),
                         percentage_profit: percentage_profit,
+                        profit_amount: 0,
+                        admin_id: admin_id,
+                        )
+end
+
+10.times do
+    
+    profit_amount = rand(7500..20000)
+    admin_id = rand(1..2)
+    Collaborator.create(name: Faker::Name.name,
+                        email: Faker::Internet.email,
+                        phone_number: Faker::Number.number(digits: 9),
+                        percentage_profit: 0,
                         profit_amount: profit_amount,
                         admin_id: admin_id,
                         )

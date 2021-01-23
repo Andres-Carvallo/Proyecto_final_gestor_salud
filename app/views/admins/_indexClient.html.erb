@@ -1,4 +1,5 @@
-<h1>Clientes</h1>
+<h1>Enero 2021</h1>
+<h2>Clientes</h2>
   
   <table>
     <h3 class="d-flex  justify-content-center">Agregar Nuevos Clientes</h3>
@@ -14,6 +15,7 @@
         <th>Telefono</th>
         <th>Rut</th>
         <th>Monto Pagado</th>
+        <th>Total Deuda</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -25,6 +27,7 @@
           <td><%= client.phone_number %></td>
           <td><%= client.rut %></td>
           <td><%= client.paid_out %></td>
+          <td><%= client_total_debt(client) %></td>
           <td><%= link_to 'Show', client %></td>
           <td><%= link_to 'Edit', edit_client_path(client) %></td>
           <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>

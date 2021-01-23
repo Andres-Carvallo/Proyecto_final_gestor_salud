@@ -1,6 +1,6 @@
-<h1>Profesionales</h1>
 
-  
+<h1>Enero 2021</h1>
+<h2>Profesionales</h2>
 <table>
   <h3 class="d-flex  justify-content-center">Agregar Nuevo Profesional</h3>
   <div class="mb-4 d-flex justify-content-center">
@@ -12,11 +12,11 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Email</th>
       <th>Telefono</th>
       <th>Porcentaje de ganancia</th>
       <th>Monto por servicio</th>
       <th>Total ganancia Colaborador</th>
+      <th>Total a pagar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,20 +25,11 @@
     <% @collaborators.each do |collaborator| %>
       <tr>
         <td><%= collaborator.name %></td>
-        <td><%= collaborator.email %></td>
         <td><%= collaborator.phone_number %></td>
         <td><%= collaborator.percentage_profit %></td>
         <td><%= collaborator.profit_amount %></td>
-        <td>
-          <div>
-            <%total_amount = 0%>
-            <%collaborator.services.each do |service|%>
-              <%= total_amount = service.amount  %>
-            <%end%>
-            <%= total_amount %>
-          </div>
-        </td>
-        
+        <td><%= colab_total_amount(collaborator) %></td>
+        <td><%= colab_total_to_pay(collaborator) %></td>
         <td><%= link_to 'Show', collaborator %></td>
         <td><%= link_to 'Edit', edit_collaborator_path(collaborator) %></td>
         <td><%= link_to 'Destroy', collaborator, method: :delete, data: { confirm: 'Are you sure?' } %></td>

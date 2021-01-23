@@ -67,7 +67,7 @@ class CollaboratorsController < ApplicationController
   def destroy
     @collaborator.destroy
     respond_to do |format|
-      if current_user.role = "Gerencia"
+      if current_user.role == "Gerencia"
         format.js {render layout: false}
         format.html { redirect_to :admins, notice: 'Collaborator was successfully destroyed.' }
       else
@@ -85,7 +85,7 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def collaborator_params
-      params.require(:collaborator).permit(:name, :email, :phone_number, :percentage_profit, :profit_amount, :admin_id)
+      params.require(:collaborator).permit(:name, :phone_number, :percentage_profit, :profit_amount, :admin_id)
     end
 
     def verify_role

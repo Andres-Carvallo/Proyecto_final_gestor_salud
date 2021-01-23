@@ -17,11 +17,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
     <%= form.label :phone_number %>
     <%= form.number_field :phone_number %>
   </div>
@@ -32,16 +27,6 @@
       <%= form.collection_select :admin_id, Admin.order(:name), :id, :name %>
     </div>
   <div>
-
-  <div class="field">
-    <%= form.label :percentage_profit %>
-    <%= form.text_field :percentage_profit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :profit_amount %>
-    <%= form.text_field :profit_amount %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

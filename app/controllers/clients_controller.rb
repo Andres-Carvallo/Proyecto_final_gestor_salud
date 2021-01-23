@@ -30,12 +30,15 @@ class ClientsController < ApplicationController
     @client.user_id = current_user.id
     respond_to do |format|
       if @client.save
-        if current_user.role = "Gerencia"
+        if current_user.role == "Gerencia"
           format.js {render layout: false}
           format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        elsif current_user.role = "Paciente"
+        elsif current_user.role == "Paciente"
           format.html { redirect_to @client, notice: 'Client was successfully created.' }
           format.json { render :show, status: :created, location: @client }
+        elsif current_user.role == "Profesional"
+          format.html { redirect_to :collaborators, notice: 'Client was successfully created.' }
+          format.json { render :show, status: :created, location: @collaborators }
         end
       else
         format.html { render :new }
@@ -49,7 +52,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        if current_user.role = "Gerencia"
+        if current_user.role == "Gerencia"
           format.html { redirect_to :admins, notice: 'Client was successfully updated.' }
           format.json { render :show, status: :ok, location: @client }
         else
