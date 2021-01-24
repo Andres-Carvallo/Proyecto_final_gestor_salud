@@ -18,6 +18,8 @@ class AdminsController < ApplicationController
     @client = Client.new
     @service = Service.new
     @services = Service.all
+    @week_service_chart = Service.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
+    @week_collab_chart = Service.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
   end
 
   # GET /admins/1

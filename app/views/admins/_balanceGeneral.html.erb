@@ -5,16 +5,18 @@
         <h2 class="text-center">Balance General</h2>
         <div class="row">
             <div>
-                <h3>Utilidades Totales</h3>
-                <p><%=total_utilities(@collaborators, @services)%></p>
-            </div>
-            <div class="pl-5"> 
-                <h3>Total Ganado</h3>
-                <p><%= total_profit(@services) %> </p>
-            </div>
-            <div>
-                <h3>Total gastado</h3>
-                <p><%=colab_total_amount_summary(@collaborators)%></p>
+                <div class="pl-5 row"> 
+                    <h3>Utilidades Totales</h3>
+                    <p><%=total_utilities(@collaborators, @services)%></p>
+                    <h3>Total Ganado</h3>
+                    <p><%= total_profit(@services) %> </p>
+                    <h3>Total gastado</h3>
+                    <p><%=colab_total_amount_summary(@collaborators)%></p>
+                </div>
+                <h2 class="text-center">Distribución de servicios por semana</h2>
+                <%= pie_chart @week_service_chart %>
+                <h2 class="text-center mt-5">Distribución de colaboradores por semana</h2>
+                <%= pie_chart @week_collab_chart %>
             </div>
 
         </div>

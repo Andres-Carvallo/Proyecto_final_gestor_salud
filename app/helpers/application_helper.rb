@@ -85,13 +85,13 @@ module ApplicationHelper
                 percentage_profit = collaborator.percentage_profit * 0.01
                 collaborator.services.each do |services|
                     total_amount += (services.bill * percentage_profit)
-                end 
-            end
-    
-            if collaborator.profit_amount?
+                end
+
+            elsif collaborator.profit_amount > 0
                 collaborator.services.each do |service|
                     total_amount += (service.bill - collaborator.profit_amount)
                 end 
+            
             end
         end
         return total_amount
