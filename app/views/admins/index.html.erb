@@ -4,13 +4,13 @@
 
   <h1>Administradores</h1>
     
-  <table>
+  <table class="styled-table">
     <div>
       <%= render '/admins/newService', service: @service %>   
     </div>
     <div class="mt-5">
       <thead >
-        <tr>
+        <tr class="active-row">
           <th>Nombre</th>
           <th colspan="3"></th>
         </tr>
@@ -34,7 +34,7 @@
       </tbody>
     </div>
   </table>
-
+  
   <%= render '/admins/balanceGeneral', collaborator: @collaborator %>  
 
   <hr>

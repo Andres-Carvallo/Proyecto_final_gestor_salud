@@ -58,21 +58,8 @@ module ApplicationHelper
     end
 
     def colab_total_to_pay(collaborator)
-        total_amount = 0 
-        percentage_profit = 0
-
-        if collaborator.percentage_profit?
-            percentage_profit = collaborator.percentage_profit * 0.01
-            collaborator.services.each do |services|
-                total_amount += ((services.bill * percentage_profit)/0.115)
-            end 
-        end
-
-        if collaborator.profit_amount?
-            collaborator.services.each do |service|
-                total_amount += ((service.bill - collaborator.profit_amount)/0.115)
-            end 
-        end
+        total_amount = 0
+        total_amount = colab_total_amount(collaborator) /0.115
         return total_amount
     end
 

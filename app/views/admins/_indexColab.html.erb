@@ -12,11 +12,10 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Telefono</th>
       <th>Porcentaje de ganancia</th>
       <th>Monto por servicio</th>
-      <th>Total ganancia Colaborador</th>
-      <th>Total a pagar</th>
+      <th>Total Bruto</th>
+      <th>Total Liquido</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,7 +24,6 @@
     <% @collaborators.each do |collaborator| %>
       <tr>
         <td><%= collaborator.name %></td>
-        <td><%= collaborator.phone_number %></td>
         <td><%= collaborator.percentage_profit %></td>
         <td><%= collaborator.profit_amount %></td>
         <td><%= colab_total_amount(collaborator) %></td>
