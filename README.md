@@ -74,3 +74,5 @@ https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
         - heroku domains:add geslife.tech (para agregar el dominio)
         - luego en la configuracion de la app en heroku esta el dns cname para copiar en el record del dominio
         - Se configura el proveedor de dominio
+
+    CONTROL DE ERRORES CON SENTRY

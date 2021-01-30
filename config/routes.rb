@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  root "clients#index"
+  root "admins#index"
   resources :services
   resources :collaborators
   resources :clients

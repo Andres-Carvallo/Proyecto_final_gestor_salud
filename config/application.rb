@@ -15,5 +15,18 @@ module GestorSalud
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    Sentry.init do |config|
+      config.dsn = 'https://8a52a815c1ed4de386b23c46f7f87426@o513688.ingest.sentry.io/5616012'
+      config.breadcrumbs_logger = [:active_support_logger]
+    
+      # To activate performance monitoring, set one of these options.
+      # We recommend adjusting the value in production:
+      # config.traces_sample_rate = 0.5
+      # or
+      config.traces_sampler = lambda do |context|
+        true
+      end
+    end
   end
 end
+
