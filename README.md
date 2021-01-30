@@ -59,3 +59,18 @@ https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
                 AWSElasticBeanstalkRoleCore
     
     -Se debe crear posteriormente una DB en RDS para poder linkear nuestro proyecto con su db
+
+    Heroku
+    - se debe logear tener cuenta en heroku
+    -primero en terminal - heroku login
+    -luego - heroku create para crear el proyecto
+    - git add . , git commit -m "" para guardar en git los cambios
+    - luego - heroku run rake db:migrate para pasar la DB
+    -Por ultimo Heroku Open para abrir el proyecto
+
+
+    CONFIGURACION DE DOMINIO
+    En primer lugar
+        - heroku domains:add geslife.tech (para agregar el dominio)
+        - luego en la configuracion de la app en heroku esta el dns cname para copiar en el record del dominio
+        - Se configura el proveedor de dominio
