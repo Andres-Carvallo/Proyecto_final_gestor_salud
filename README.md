@@ -35,3 +35,27 @@ https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
     . Pass - password
 -Ajax creacion de recursos(servicios) en vista index admins.
 -Calificaciones en edit de servicios, acceso navbar. 
+
+
+# Hito 4
+
+- Config de subida:
+    Se uso elastic beanstalk de AWS para subir la app de manera simple
+    - se instala con sudo pip awsbecli
+    - Se debe tener cuenta en AWS para acceder
+    - eb init inicia en nuestro proyecto el servicio
+    - eb create crea el proyecto 
+    - eb create Gestorklife-env-1 -db.engine postgres comando para crear que incluye db engine con postgres
+    - Se debe configurar las credenciales en permisos de IAM
+    - Credenciales usadas =>
+                AmazonS3FullAccess
+                AWSCodeDeployFullAccess
+                AWSElasticBeanstalkWebTier
+                AWSElasticBeanstalkFullAccess
+                AWSCodeDeployRole
+                AWSElasticBeanstalkService
+                AWSElasticBeanstalkWorkerTier
+                AdministratorAccess-AWSElasticBeanstalk
+                AWSElasticBeanstalkRoleCore
+    
+    -Se debe crear posteriormente una DB en RDS para poder linkear nuestro proyecto con su db

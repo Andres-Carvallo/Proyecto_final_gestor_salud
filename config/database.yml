@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: gestor_salud_production
   username: gestor_salud
   password: <%= ENV['GESTOR_SALUD_DATABASE_PASSWORD'] %>
