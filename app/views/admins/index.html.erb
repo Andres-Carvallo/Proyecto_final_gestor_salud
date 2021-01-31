@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
 
 <div class="container">
+  <p id="notice"><%= notice %></p>
 
   <h1>Administradores</h1>
     
@@ -40,14 +40,17 @@
   <hr>
   <br>
 
-  <div class="colabTable">
+  <div class="container">
     <%= render '/admins/indexColab', collaborator: @collaborator %>  
   </div>
 
   <hr>
   <br>
 
-  <%= render '/admins/indexClient', client: @client %>
+  <div class="conatiner">
+
+    <%= render '/admins/indexClient', client: @client %>
+  </div>
   
   <br>
 
