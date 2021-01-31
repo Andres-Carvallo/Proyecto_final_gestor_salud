@@ -13,6 +13,7 @@ Por otra parte existe una necesidad importante en el control monetario en este t
 3.
 Por ultimo al ser servicios de atencion unitaria con cobros variables es muy importante integrar algun sistema de cobros y pagos por servicio.
 
+4. En la primera fase se haran las funcionalidades enfocadas a los Administradores de servicio
 
 # AVANCES
 
