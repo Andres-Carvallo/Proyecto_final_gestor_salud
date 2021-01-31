@@ -1,38 +1,60 @@
-
 <h1>Este Més</h1>
 <h2>Profesionales</h2>
-<table>
-  <h3 class="d-flex  justify-content-center">Agregar Nuevo Profesional</h3>
-  <div class="mb-4 d-flex justify-content-center">
-    <button type="button" class="btn btn-dark" id="collaborator-button">Nuevo Profesional </button>
-  </div >
-  <div id="collaborator-form" style="display: none;" class="mt-4 mb-4" >
-    <%= render '/collaborators/form2', collaborator: @collaborator %>
-  </div>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Porcentaje de ganancia</th>
-      <th>Monto por servicio</th>
-      <th>Total Bruto</th>
-      <th>Total Liquido</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <table>
+        <h3 class="d-flex  justify-content-center">Agregar Nuevo Profesional</h3>
+        <div class="mb-4 d-flex justify-content-center">
+          <button type="button" class="btn btn-dark" id="collaborator-button">Nuevo Profesional </button>
+        </div >
+        <div id="collaborator-form" style="display: none;" class="mt-4 mb-4" >
+          <%= render '/collaborators/form2', collaborator: @collaborator %>
+        </div>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Porcentaje de ganancia</th>
+            <th>Monto por servicio</th>
+            <th>Total Bruto</th>
+            <th>Total Liquido</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @collaborators.each do |collaborator| %>
-      <tr>
-        <td><%= collaborator.name %></td>
-        <td><%= collaborator.percentage_profit %></td>
-        <td><%= collaborator.profit_amount %></td>
-        <td><%= colab_total_amount(collaborator) %></td>
-        <td><%= colab_total_to_pay(collaborator) %></td>
-        <td><%= link_to 'Show', collaborator %></td>
-        <td><%= link_to 'Edit', edit_collaborator_path(collaborator) %></td>
-        <td><%= link_to 'Destroy', collaborator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @collaborators.each do |collaborator| %>
+            <tr>
+              <td><%= link_to collaborator.name, collaborator%></td>
+              <td><%= collaborator.percentage_profit %></td>
+              <td><%= collaborator.profit_amount %></td>
+              <td><%= colab_total_amount(collaborator) %></td>
+              <td><%= colab_total_to_pay(collaborator) %></td>
+              <td><%= %></td>
+              <td><%= link_to 'Edit', edit_collaborator_path(collaborator) %></td>
+              <td><%= link_to 'Destroy', collaborator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="carousel-item">
+     
+    </div>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="sr-only">Next</span>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+
+
+
+
 

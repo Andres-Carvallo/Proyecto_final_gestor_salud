@@ -14,6 +14,7 @@ class AdminsController < ApplicationController
     
 
     @clients = Client.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @clients_last_month = Client.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     @collaborator = Collaborator.new
     @client = Client.new
     @service = Service.new

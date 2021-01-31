@@ -73,6 +73,11 @@ https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
     En primer lugar
         - heroku domains:add geslife.tech (para agregar el dominio)
         - luego en la configuracion de la app en heroku esta el dns cname para copiar en el record del dominio
-        - Se configura el proveedor de dominio
+        - se agregar el servidos use route 53 de AWS para manejo de dominios y dns
+        - Se configura el proveedor de dominio (en mi caso compre un dominio barato en domain.com)
+
+
+    direccion app = www.geslife.tech
+
 
     CONTROL DE ERRORES CON SENTRY
