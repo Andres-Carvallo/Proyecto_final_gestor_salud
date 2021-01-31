@@ -1,28 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5 pt-5">
+  <p id="notice"><%= notice %></p>
+  <div class="colab-info">
+    <div class="d-flex">
+      <div class="inner-show">
+        <strong ><h3>Name:</h3></strong>
+      </div>
+      <%= @collaborator.name %>
+    </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @collaborator.name %>
-</p>
+    <div class="d-flex">
+      <div class="inner-show">
+        <strong><h3>Phone number:</h3></strong>
+      </div>
+      <%= @collaborator.phone_number %>
+    </div>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @collaborator.phone_number %>
-</p>
+    <div class="d-flex">
+      <div class="inner-show">
+        <strong><h3>Percentage profit:</h3></strong>
+      </div>
+      <%= @collaborator.percentage_profit %>
+    </div>
 
-<p>
-  <strong>Percentage profit:</strong>
-  <%= @collaborator.percentage_profit %>
-</p>
+    <div class="d-flex">
+      <div class="inner-show">
+        <strong><h3>Profit amount:</h3></strong>
+      </div>
+      <%= @collaborator.profit_amount %>
+    </div>
 
-<p>
-  <strong>Profit amount:</strong>
-  <%= @collaborator.profit_amount %>
-</p>
+    <%= link_to 'Edit', edit_collaborator_path(@collaborator) %> |
+    <%if current_user.role == "Gerencia"%>
+      <%= link_to 'Back', admins_path %>
+    <%else%>
+      <%= link_to 'Back', collaborators_path %>
+    <%end%>
+  </div>
 
-<%= link_to 'Edit', edit_collaborator_path(@collaborator) %> |
-<%if current_user.role == "Gerencia"%>
-  <%= link_to 'Back', admins_path %>
-<%else%>
-  <%= link_to 'Back', collaborators_path %>
-<%end%>
+</div>

@@ -26,6 +26,7 @@ end
                         percentage_profit: percentage_profit,
                         profit_amount: 0,
                         admin_id: admin_id,
+                        created_at: Faker::Date.between(from: '2020-12-01', to: '2021-1-31'),
                         )
 end
 
@@ -38,6 +39,7 @@ end
                         percentage_profit: 0,
                         profit_amount: profit_amount,
                         admin_id: admin_id,
+                        created_at: Faker::Date.between(from: '2020-12-01', to: '2021-1-31'),
                         )
 end
 
@@ -47,7 +49,8 @@ end
                   rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
                   paid_out: 0,
-                  collaborator_id: collaborator_id
+                  collaborator_id: collaborator_id,
+                  created_at: Faker::Date.between(from: '2020-12-01', to: '2021-1-31'),
                   )
 end
 
@@ -58,7 +61,8 @@ end
                   rut: Faker::ChileRut.rut,  
                   phone_number: Faker::Number.number(digits: 9),
                   paid_out: paid_out,
-                  collaborator_id: collaborator_id
+                  collaborator_id: collaborator_id,
+                  created_at: Faker::Date.between(from: '2020-12-01', to: '2021-1-31'),
                 )
 end
 

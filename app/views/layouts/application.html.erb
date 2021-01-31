@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GestorSalud</title>
+    <title>Geslife</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,7 +16,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
           <div>
-            <a class="navbar-brand" href="">Navbar</a>
+            <a class="navbar-brand" href="/">Geslife</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,15 +24,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+                <button class="nav-link  text-light bg-dark"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= current_user.role%>
+                </button>
+                <ul class="dropdown-menu bg-secondary" aria-labelledby="navbarDropdown">
                   <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                   <li><%= link_to "Perfil Usuario", edit_user_registration_path%></li>
                   <%if current_user.role == "Gerencia"%>
                     <li><%= link_to 'Servicios', services_path %></li>
-                    <li><%= link_to 'Dashboard Gerencia', admin_root_path %></li>
+                    <li><%= link_to 'Dashboard', admin_root_path %></li>
                   <%end%>
                 </ul>
               </li>

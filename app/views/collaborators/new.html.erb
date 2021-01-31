@@ -1,9 +1,11 @@
-<%if current_user.role == "Profesional"%>
-    <h1>Ingresa tu paciente aqui</h1>
-    <%= render 'form2', collaborator: @collaborator %>
-    <%= link_to 'Back', collaborators_path %>
-<%else%>
-    <h1>Para Continuar debes ingresar tus datos personales</h1>
-    <%= render 'form', collaborator: @collaborator %>
-<%end%>
+<div class="conatiner">
+    <%if current_user.role == "Gerencia"%>
+        <h1>Ingresa tu profesional aqui</h1>
+        <%= render 'form2', collaborator: @collaborator %>
+        <%= link_to 'Back', collaborators_path %>
+    <%else%>
+        <h1>Para Continuar debes ingresar tus datos personales</h1>
+        <%= render 'form', collaborator: @collaborator %>
+    <%end%>
+</div>
 

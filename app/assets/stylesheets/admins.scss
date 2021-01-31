@@ -24,25 +24,48 @@
 #carouselExampleControls{
     width: 70%;
     margin: auto;
+    
 }
 
 .carousel-control-prev{
     margin-left: -150px;
     margin-top: 400px;
-    height: 10%;
+    height: 80px;
     background-color: rgb(128, 128, 128);
     text-decoration: none;
+    border-radius: 25%;
 }
 .carousel-control-next{
     margin-right: -150px;
-    height: 10%;
+    height: 80px;
     margin-top: 400px;
     background-color: rgb(128, 128, 128);
     text-decoration: none;
+    border-radius: 25%;
 
+}
+
+.carousel-control-prev:hover{
+    background-color: black;
+}
+
+.carousel-control-next:hover{
+    background-color: black;
 }
 
 .sr-only{
     color: white;
    
+}
+.colab-table{
+    margin: auto;
+}
+
+
+.hiddentable{
+    display: none;
+}
+
+.hiddenh1{
+    display: none;
 }

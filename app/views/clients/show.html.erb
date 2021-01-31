@@ -1,34 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="conatine">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @client.name %>
+  </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @client.phone_number %>
-</p>
+  <p>
+    <strong>Phone number:</strong>
+    <%= @client.phone_number %>
+  </p>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @client.rut %>
-</p>
+  <p>
+    <strong>Rut:</strong>
+    <%= @client.rut %>
+  </p>
 
-<p>
-  <strong>Paid out:</strong>
-  <%= @client.paid_out %>
-</p>
+  <p>
+    <strong>Paid out:</strong>
+    <%= @client.paid_out %>
+  </p>
 
-<%if current_user.role != "Profesional"%>
-  <%= link_to 'Edit', edit_client_path(@client) %> 
-<%end%>
+  <%if current_user.role != "Profesional"%>
+    <%= link_to 'Edit', edit_client_path(@client) %> 
+  <%end%>
 
-<%if current_user.role == "Profesional"%>
-  <%= link_to 'Back', collaborators_path %>
-<%elsif current_user.role == "Gerencia"%>
-  <%= link_to 'Back', admins_path %>
-<%else%>
+  <%if current_user.role == "Profesional"%>
+    <%= link_to 'Back', collaborators_path %>
+  <%elsif current_user.role == "Gerencia"%>
+    <%= link_to 'Back', admins_path %>
+  <%else%>
 
-<%end%>
+  <%end%>
+
+</div>
 

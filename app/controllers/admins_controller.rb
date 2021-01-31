@@ -11,16 +11,17 @@ class AdminsController < ApplicationController
       return collaborators_close
     end
     @collaborators = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @collaborators_last_month = Collaborator.where(:created_at => Time.zone.now.last_month.beginning_of_month..Time.zone.now.last_month.end_of_month)
     
 
     @clients = Client.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
-    @clients_last_month = Client.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @clients_last_month = Client.where(:created_at => Time.zone.now.last_month.beginning_of_month..Time.zone.now.last_month.end_of_month)
     @collaborator = Collaborator.new
     @client = Client.new
     @service = Service.new
     @services = Service.all
     @week_service_chart = Service.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
-    @week_collab_chart = Service.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
+    @week_collab_chart = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
   end
 
   # GET /admins/1

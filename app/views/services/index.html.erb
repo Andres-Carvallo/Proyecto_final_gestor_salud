@@ -20,22 +20,23 @@
     <tbody>
       <% @services.each do |service| %>
         <tr>
-          <td><%= service.name %></td>
-          <td><%= service.amount %></td>
-          <td><%= service.client.name %></td>
-          <td><%= service.collaborator.name %></td>
-          <td><%= service.session %></td>
-          <td><%= service.bill %></td>
-          <td><%= service.score %></td>
-          <td><%= link_to 'Edit', edit_service_path(service) %></td>
-          <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="align-middle"><%= link_to service.name, service%></td>
+          <td class="align-middle"><%= service.amount %></td>
+          <td class="align-middle"><%= service.client.name %></td>
+          <td class="align-middle"><%= service.collaborator.name %></td>
+          <td class="align-middle"><%= service.session %></td>
+          <td class="align-middle"><%= service.bill %></td>
+          <td class="align-middle"><%= service.score %></td>
+          <td class="align-middle"><button type="button" class="destroy_colab btn btn-dark"><%= link_to 'Borrar', service, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   
   <br>
-  
-  <%= link_to 'Back', admins_path %>
+  <div class="bg-secondary text-white backfooter" >
+
+    <%= link_to 'Back', admins_path %>
+  </div>
 
 </div>

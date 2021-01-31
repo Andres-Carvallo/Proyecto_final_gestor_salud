@@ -1,9 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Amount:</strong>
-  <%= @service.amount %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+  <p id="notice"><%= notice %></p>
+  <h2>Servicio</h2>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @service.name %>
+  </p>
+  <p>
+    <strong>Monto Unitario:</strong>
+    <%= @service.amount %>
+  </p>
+  <p>
+    <strong>Numero atenciones:</strong>
+    <%= @service.session %>
+  </p>
+  <p>
+    <strong>Profesional:</strong>
+    <%= @service.collaborator.name %>
+  </p>
+  <p>
+    <strong>Paciente:</strong>
+    <%= @service.client.name %>
+  </p>
+  <div class="bg-secondary text-white backfooter" >
+    <%= link_to 'Edit', edit_service_path(@service) %> |
+    <%= link_to 'Back', services_path %>
+  </div>
+</div>

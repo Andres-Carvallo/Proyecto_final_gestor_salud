@@ -16,7 +16,7 @@ module ApplicationHelper
                 total_amount += (service.bill - collaborator.profit_amount)
             end 
         end
-        return total_amount
+        return total_amount.round
     end
 
     def client_total_debt(client)
@@ -25,7 +25,7 @@ module ApplicationHelper
         client.services.each do |service|
             total_debt += service.bill - paid_out
         end
-        return total_debt
+        return total_debt.round
     end
 
     def total_profit(services)
@@ -33,7 +33,7 @@ module ApplicationHelper
         services.each do |service|
             total_profit += service.bill
         end
-        return total_profit
+        return total_profit.round
     end
 
     def total_utilities(collaborators, services)
@@ -54,13 +54,13 @@ module ApplicationHelper
 
         end
         total_utilities = total_profit(services) - colab_total_amount
-        return total_utilities
+        return total_utilities.round
     end
 
     def colab_total_to_pay(collaborator)
         total_amount = 0
         total_amount = colab_total_amount(collaborator) /0.115
-        return total_amount
+        return total_amount.round
     end
 
 
@@ -74,13 +74,15 @@ module ApplicationHelper
                     total_amount += (services.bill * percentage_profit)
                 end
 
-            elsif collaborator.profit_amount > 0
-                collaborator.services.each do |service|
-                    total_amount += (service.bill - collaborator.profit_amount)
+            elsif collaborator.profit_amount?
+                if collaborator.profit_amount > 0 
+                    collaborator.services.each do |service|
+                        total_amount += (service.bill - collaborator.profit_amount)
+                    end
                 end 
             
             end
         end
-        return total_amount
+        return total_amount.round
     end
 end

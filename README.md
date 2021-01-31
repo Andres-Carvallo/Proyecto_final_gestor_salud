@@ -36,6 +36,9 @@ https://trello.com/b/93uJjWTL/poyecto-gestor-recursos-humanos-servicio-salud
 -Ajax creacion de recursos(servicios) en vista index admins.
 -Calificaciones en edit de servicios, acceso navbar. 
 
+# Hito 3
+    - Se implemente high chart para ver distribucion de ingresos de serivicios por semana y colaboradores
+    - Se crea api de Sendgrid para envio automatico de cobro
 
 # Hito 4
 
