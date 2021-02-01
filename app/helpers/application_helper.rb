@@ -59,7 +59,7 @@ module ApplicationHelper
 
     def colab_total_to_pay(collaborator)
         total_amount = 0
-        total_amount = colab_total_amount(collaborator) /0.115
+        total_amount = (colab_total_amount(collaborator)* 0.885)
         return total_amount.round
     end
 
