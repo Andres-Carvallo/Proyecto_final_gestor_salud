@@ -26,8 +26,7 @@ module ApplicationHelper
             client.services.each do |service|
                     if service.bill == nil
                         total_debt += 0 - paid_out
-                    else
-                        total_debt += service.bill - paid_out
+              
                     end    
             end
         end
