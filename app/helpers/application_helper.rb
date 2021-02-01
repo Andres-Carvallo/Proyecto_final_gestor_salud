@@ -22,10 +22,10 @@ module ApplicationHelper
     def client_total_debt(client)
         total_debt = 0
         paid_out = client.paid_out
-        if client.services
+        if client.services.count != 0
             client.services.each do |service|
                     total_debt += service.bill - paid_out
-                end
+            end
         end
         return total_debt.round
     end
