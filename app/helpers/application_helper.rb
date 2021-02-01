@@ -77,7 +77,9 @@ module ApplicationHelper
             elsif collaborator.profit_amount?
                 if collaborator.profit_amount > 0 
                     collaborator.services.each do |service|
-                        total_amount += (service.bill - collaborator.profit_amount)
+                        if service != nil
+                            total_amount += (service.bill - collaborator.profit_amount)
+                        end
                     end
                 end 
             
