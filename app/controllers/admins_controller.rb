@@ -5,23 +5,30 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
-    first_day_month = Time.parse("2021-01-01")
-    if Time.zone.now.end_of_month == Date.current
-      collaborators_close = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
-      return collaborators_close
-    end
-    @collaborators = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
-    @collaborators_last_month = Collaborator.where(:created_at => Time.zone.now.last_month.beginning_of_month..Time.zone.now.last_month.end_of_month)
-    
-
     @clients = Client.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     @clients_last_month = Client.where(:created_at => Time.zone.now.last_month.beginning_of_month..Time.zone.now.last_month.end_of_month)
     @collaborator = Collaborator.new
     @client = Client.new
     @service = Service.new
-    @services = Service.all
     @week_service_chart = Service.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
     @week_collab_chart = Collaborator.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).group_by_day_of_week(:created_at, format: "%a").count
+    @services = Service.where(:created_at => Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    @services_last_month = Service.where(:created_at => Time.zone.now.last_month.beginning_of_month..Time.zone.now.last_month.end_of_month)
+    @collaborators_last_month = []
+    @collaborators = []
+    if @services != nil
+      @services.each do |service|
+        @collaborators.push(service.client.collaborator)
+      end
+    end
+    
+    if @services_last_month != nil
+      @services_last_month.each do |service|
+        @collaborators_last_month.push(service.client.collaborator)
+      end
+    end
+
+    
   end
 
   # GET /admins/1

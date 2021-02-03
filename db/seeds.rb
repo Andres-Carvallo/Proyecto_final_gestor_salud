@@ -67,7 +67,7 @@ end
                 )
 end
 
-10.times do
+20.times do
     amount = rand(15000..30000)
     rand_value_colab = rand(0..19)
     rand_value_client = rand(0..74)
@@ -77,7 +77,8 @@ end
                    collaborator_id: Collaborator.last(20)[rand_value_colab].id,
                    client_id: Client.last(75)[rand_value_client].id,
                    session: sessions,
-                   bill: (sessions * amount)
+                   bill: (sessions * amount),
+                   created_at: Faker::Date.between(from: '2021-01-31', to: '2021-2-01'),
                 )
 end
 
